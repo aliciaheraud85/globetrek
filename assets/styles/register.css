@@ -1,0 +1,11 @@
+.registercard{
+    height: 66rem;
+}
+
+a{
+    color: #fff;
+}
+
+a:hover{
+    text-decoration: none;
+}

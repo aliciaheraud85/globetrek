@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="container d-flex justify-content-center">
+        <div class="card registercard">
+            <div class="card-body">
+                <h1 class="card-title p-5">M'inscrire</h1>
+                <h2 class="card-subtitle pb-5"> Inscris-toi pour accéder à la plateforme de réservation.</h2>
+                <div class="row">
+                    <div class="col-md-1">
+                    
+                    </div>
+                    <div class="col-md-10">
+                        {{ form_errors(registrationForm) }}
+
+                        {{ form_start(registrationForm) }}
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.lastname, {attr: {class: 'form-control', placeholder: 'NOM'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.firstname, {attr: {class: 'form-control', placeholder: 'Prénom'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.pseudo, {attr: {class: 'form-control', placeholder: 'Pseudo'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.email, {attr: {class: 'form-control', placeholder: 'Adresse mail'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.address, {attr: {class: 'form-control', placeholder: 'N° et rue'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.zipcode, {attr: {class: 'form-control', placeholder: 'Code postale'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.city, {attr: {class: 'form-control', placeholder: 'Ville'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.country, {attr: {class: 'form-control', placeholder: 'Pays'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(registrationForm.avatar, {label: 'Avatar', attr: {class: 'form-control', type: 'file', mapped: 'false'}})}}
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                {{ form_widget(registrationForm.plainPassword, {label: 'Mot de passe', attr: {class: 'form-control', placeholder: 'Mot de passe'}})}}
+                            </div>
+                            <div class="col-md-12 mb-5">
+                                {{ form_widget(registrationForm.agreeTerms, {attr: {class: 'form-check-label'}})}} <label for="form-check-label">J'accepte les <a href="">conditions générales d'utilisation</a></label>
+                            </div>
+                            <div class="col-md-12 mb-3 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-lg logbtn">Inscription</button>
+                            </div>
+                        {{ form_end(registrationForm) }}
+                            <div class="row pt-5">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-5"></div>
+                                <div class="col-md-6 d-flex justify-content-end">
+                                    <p class="pt-2">Déjà inscrit ?</p>&emsp;<a href="{{path('app_login')}}"><button class="btn btn-md logbtn" type="submit">Me connecter</button></a>
+                                </div>
+                                
+                            </div>         
+                    </div>
+                    <div class="col-md-1">
+                    
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+   
+
+    
+{% endblock %}

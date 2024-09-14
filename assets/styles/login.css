@@ -1,0 +1,36 @@
+.card{
+    background-color: #FDA720;
+    margin: 80px 0px 80px 0px;
+    font-family: "Poppins", sans-serif;
+    color: #FFF;
+    font-weight: 350;
+    width: 50rem;
+    height: 40rem;
+}
+
+.card-title{
+   font-size: 2.5em;
+   text-align: center; 
+   text-shadow: 1px 1px 5px #00AEF3;
+   font-weight: bold;
+}
+
+.card-subtitle{
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 350;
+}
+
+.logbtn{
+    background-color: #1C1C68;
+    color: #FFF;
+    font-weight:200;
+    transition: transform .1s;
+    
+}
+
+.logbtn:hover{
+    transform: scale(1.1);
+    background-color:#00AEF3;
+    color: #FFF;
+}

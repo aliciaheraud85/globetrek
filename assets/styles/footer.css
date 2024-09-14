@@ -1,0 +1,26 @@
+
+
+.zxfooter{
+    background: #FDA720;  
+    background: -webkit-linear-gradient(to bottom, #FDA720, #00AEF3); 
+    background: linear-gradient(to bottom, #FDA720, #00AEF3); 
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9em;
+
+}
+
+.zximg{
+    width:250px;
+    height: 120px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link:hover{
+    color: #00AEF3;
+}
+
+

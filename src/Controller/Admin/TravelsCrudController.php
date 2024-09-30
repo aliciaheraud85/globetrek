@@ -78,7 +78,7 @@ class TravelsCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInSingular('Travels')
+            ->setEntityLabelInSingular('Voyages')
             ->setDefaultSort(['createdAt' => 'DESC'])
             ->setPaginatorPageSize(10)
         ;

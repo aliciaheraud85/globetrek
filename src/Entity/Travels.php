@@ -6,6 +6,7 @@ use App\Repository\TravelsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: TravelsRepository::class)]
 class Travels
@@ -60,7 +61,8 @@ class Travels
     #[ORM\Column]
     private ?bool $isPublished = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[Gedmo\Slug(fields: ['title'])]
+    #[ORM\Column(length: 255, nullable: true, unique:true)]
     private ?string $slug = null;
 
     #[ORM\Column]
@@ -90,6 +92,7 @@ class Travels
     {
         $this->comments = new ArrayCollection();
         $this->reservations = new ArrayCollection();
+        $this->createdAt = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -280,13 +283,6 @@ class Travels
     public function getSlug(): ?string
     {
         return $this->slug;
-    }
-
-    public function setSlug(?string $slug): static
-    {
-        $this->slug = $slug;
-
-        return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable

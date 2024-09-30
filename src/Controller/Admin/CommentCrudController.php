@@ -18,12 +18,12 @@ class CommentCrudController extends AbstractCrudController
         return Comment::class;
     }
 
-    public function configureCrud(Crud $crud): Crud
+     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInSingular('Contact')
+             ->setEntityLabelInSingular('un commentaire')
             ->setDefaultSort(['createdAt' => 'DESC'])
-            ->setPaginatorPageSize(10)
+             ->setPaginatorPageSize(10)
         ;
     }
     
@@ -33,14 +33,14 @@ class CommentCrudController extends AbstractCrudController
             ->setPermission(Action::DELETE, 'ROLE_MODO')
         ;
     }
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
+   
+    // public function configureFields(string $pageName): iterable
+    // {
+    //     return [
+    //         IdField::new('id'),
+    //         TextField::new('title'),
+    //         TextEditorField::new('description'),
+    //     ];
+    // }
+    
 }

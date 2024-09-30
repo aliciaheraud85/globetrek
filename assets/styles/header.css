@@ -8,3 +8,9 @@
     font-family: "Poppins", sans-serif;
     font-size: 1em;
 }
+
+.roundedImage{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}

@@ -21,7 +21,7 @@ class ContactCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInSingular('Contact')
+            ->setEntityLabelInSingular('une demande de contact')
             ->setDefaultSort(['createdAt' => 'DESC'])
             ->setPaginatorPageSize(10)
         ;

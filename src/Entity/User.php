@@ -89,7 +89,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->travels = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->reservations = new ArrayCollection();
-        $this->createdAt = new DateTimeImmutable();
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
+    public function __toString(){
+        return $this->firstname;
     }
 
     public function getId(): ?int

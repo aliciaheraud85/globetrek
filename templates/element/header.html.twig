@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <img class="img-fluid zxlogo" src="{{asset('/divers/images/grandLogoOrange.png')}}" alt="">
+                <a href="{{path('app_main')}}"><img class="img-fluid zxlogo" src="{{asset('/divers/images/grandLogoOrange.png')}}" alt=""></a>
             </div>
             <div class="col-md-6 d-flex justify-content-center">
                 <nav class="navbar navbar-expand-lg ">
@@ -18,9 +18,25 @@
                     </div>
                 </nav>
             </div>
+            {% if app.user %}
+                {% if app.user.avatar is empty %}
+                    <div class="col-md-3 d-flex justify-content-end align-items-center">
+                        <i class="fa-solid fa-circle nav-link"></i>&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                    </div>
+                {% elseif app.user.opption is same as ('yes') %}
+                    <div class="col-md-3 d-flex justify-content-end align-items-center">
+                        <img src="{{asset('divers/avatars/' ~ app.user.avatar)}}" class="img-fluid roundedImage" alt="">&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>&emsp;<a href="{{path('admin')}}" class="nav-link"><i class="fa-solid fa-circle-play"></i></a>
+                    </div>
+                {% else %}
+                <div class="col-md-3 d-flex justify-content-end align-items-center">
+                    <img src="{{asset('divers/avatars/' ~ app.user.avatar)}}" class="img-fluid roundedImage" alt="">&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>&emsp;<a href="{{path('admin')}}" class="nav-link"><i class="fa-solid fa-circle-play"></i></a>
+                </div>
+                {% endif %}
+            {% else %}
             <div class="col-md-3 d-flex justify-content-end align-items-center">
                 <a class="nav-link" href="{{path('app_login')}}">CONNEXION &emsp;<i class="fa-regular fa-circle-user"></i></a>
             </div>
+            {% endif %}
         </div>
     </div>
 </div>

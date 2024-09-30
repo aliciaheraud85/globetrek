@@ -59,7 +59,7 @@ class DashboardController extends AbstractDashboardController
             ]);
             yield MenuItem::section('Contact');
             yield MenuItem::subMenu('Contact', 'fa-regular fa-envelope')->setSubItems([
-                MenuItem::linkToCrud('Voir les demandes de contact', 'fas fa-eyes', Contact::class)
+                MenuItem::linkToCrud('Voir les demandes de contact', 'fas fa-eye', Contact::class)
             ]);
         }
 
@@ -70,32 +70,23 @@ class DashboardController extends AbstractDashboardController
             ]);
         }
 
-        if($this->isGranted('ADMIN')){
-            yield MenuItem::section('Categories');
+        if($this->isGranted('ROLE_ADMIN')){
+            yield MenuItem::section('Catégories');
             yield MenuItem::subMenu('Categories', 'fa-solid fa-book-open-reader')->setSubItems([
                 MenuItem::linkToCrud('Créer une catégorie', 'fas fa-newspaper', Categories::class)->setAction(Crud::PAGE_NEW),
                 MenuItem::linkToCrud('Voir les catégories', 'fas fa-eye', Categories::class),
             ]);
-            yield MenuItem::section('Utilisateurs');
-            yield MenuItem::subMenu('Utilisateurs', 'fa fa-user-circle')->setSubItems([
-                MenuItem::linkToCrud('Ajouter un utilisateur', 'fas fa-plus-circle', User::class)->setAction(Crud::PAGE_NEW),
-                MenuItem::linkToCrud('Voir les utilisateurs', 'fas fa-eyes', User::class)
-            ]);
-            yield MenuItem::section('Reservations');
+            yield MenuItem::section('Réservations');
             yield MenuItem::subMenu('Reservations', 'fa-solid fa-dollar-sign')->setSubItems([
-                MenuItem::linkToCrud('Voir les réservations', 'fas fa-eyes', Reservation::class)
-            ]);
-            yield MenuItem::section('Contact');
-            yield MenuItem::subMenu('Contact', 'fa-regular fa-envelope')->setSubItems([
-                MenuItem::linkToCrud('Voir les demandes de contact', 'fas fa-eyes', Contact::class)
+                MenuItem::linkToCrud('Voir les réservations', 'fas fa-eye', Reservation::class)
             ]);
         }
 
-        if($this->isGranted('SUPER_ADMIN')){
+        if($this->isGranted('ROLE_SUPER_ADMIN')){
             yield MenuItem::section('Utilisateurs');
             yield MenuItem::subMenu('Utilisateurs', 'fa fa-user-circle')->setSubItems([
                 MenuItem::linkToCrud('Utilisateurs', 'fas fa-plus-circle', User::class)->setAction(Crud::PAGE_NEW),
-                MenuItem::linkToCrud('Voir les utilisateurs', 'fas fa-eyes', User::class)
+                MenuItem::linkToCrud('Voir les utilisateurs', 'fas fa-eye', User::class)
             ]);
         }
     }
@@ -106,7 +97,7 @@ class DashboardController extends AbstractDashboardController
             throw new \Exception('Wrong user');
         }
 
-        $avatar = 'divers/avatars' . $user->getAvatar();
+        $avatar = 'divers/avatars/' . $user->getAvatar();
 
         return parent::configureUserMenu($user)
             ->setAvatarUrl($avatar);

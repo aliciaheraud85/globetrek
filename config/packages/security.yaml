@@ -40,7 +40,6 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
        - { path: '^/admin', roles: ROLE_SUPER_ADMIN }
-       - { path: '^/admin', roles: ROLE_ADMIN }
        - { path: '^/admin/categories', roles: ROLE_ADMIN }
        - { path: '^/admin/avis', roles: ROLE_MODO }
        - { path: '^/admin/annonces', roles: ROLE_EDITOR }
@@ -49,7 +48,7 @@ security:
     role_hierarchy:
         ROLE_EDITOR: ['ROLE_USER']
         ROLE_MODO: ['ROLE_EDITOR']
-        ROLE_ADMIN: ['ROEL_MODO']
+        ROLE_ADMIN: ['ROLE_MODO']
         ROLE_SUPER_ADMIN: ['ROLE_ADMIN']
 
 when@test:

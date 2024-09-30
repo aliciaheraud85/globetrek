@@ -42,3 +42,22 @@
 p{
     color:#FFF;
 }
+
+.image1{
+    position: relative;
+}
+
+.text-img{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top : 50%;
+    transform: translate(-50%,-50%);
+    color: #ffff;
+    text-shadow: 1px 2px 5px black;
+    font-weight:400;
+}
+
+.image1:hover{
+    opacity: 70%;
+}

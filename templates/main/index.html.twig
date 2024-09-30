@@ -16,6 +16,19 @@
                 <div class="col-md-12">
                     <h2 class="zxh2">Nos bests-sellers</h2>
                 </div>
+                <div class="col-md-12">
+                    <div class="row mb-5">
+                    {% for post in posts %}
+                        <div class="col-md-4 pt-4">
+                            <div class="image1">
+                                <a href="{{path('show', {id:post.id, slug: post.slug})}}">
+                                    <img src="{{asset('divers/images/' ~ post.image1)}}" class="img-fluid" alt="" style="height: 230px;"><h3 class="text-img">{{post.title}}</h3>
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

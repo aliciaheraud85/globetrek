@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voyages en {{categories.name}}{% endblock %}
+
+{% block body %}
+
+<main>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-5">
+                    <a class="showLink" href="{{path('app_main')}}"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        {% for post in posts %}
+                            <div class="col-md-4">
+                                <div class="card" style="width: 25em; height: 25em; text-align:center">
+                                    <img class="card-img-top" src="{{asset('divers/images/' ~ post.image1)}}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="font-size: 1.5em">{{post.title}}</h5>
+                                        <p class="card-text">{{post.subtitle}}</p>
+                                        <div class="d-flex justify-content-center">
+                                            <a href="{{path('show', {id:post.id, slug: post.slug})}}" class="btn btn-md submitBtn">Détails</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

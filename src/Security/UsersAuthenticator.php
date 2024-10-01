@@ -48,6 +48,12 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
+        $referer = $request->get('referer');
+
+        if($referer){
+            return new RedirectResponse($referer);
+        }
+
         // For example:
         return new RedirectResponse($this->urlGenerator->generate('app_main'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);

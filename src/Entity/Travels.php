@@ -22,10 +22,10 @@ class Travels
     #[ORM\Column(length: 255)]
     private ?string $subtitle = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(nullable: true)]
     private ?string $details = null;
 
     #[ORM\Column(length: 100)]

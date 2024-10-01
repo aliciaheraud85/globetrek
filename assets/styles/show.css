@@ -1,0 +1,68 @@
+.showLink{
+    color: #21005D;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.showLink:hover{
+    color:#017eb0;
+}
+
+.showTitle{
+    font-size: 3.2em;
+    color: #21005D;
+    font-weight: bold;
+}
+
+.showSubtitle{
+    color: #21005D;
+    font-weight: 300;
+    font-size: 1.4em;
+}
+
+.showText{
+    font-size: 1.1em;
+    text-align: justify;
+}
+
+.showSubtitle{
+    color:#21005D;
+    font-size: 1.5em;
+    font-weight: 650;
+}
+
+.line{
+    border-bottom: 1px solid black;
+}
+
+label{
+    font-size: 1.1em;
+}
+
+.submitBtn{
+    background-color: #1C1C68;
+    color: #FFF;
+    font-weight:200;
+    transition: transform .1s;
+}
+
+.submitBtn:hover{
+    transform: scale(1.1);
+    background-color:#00AEF3;
+    color: #FFF;
+}
+
+.roundedAvatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.loginLink{
+    color: #1C1C68;
+    text-decoration: none;
+}
+
+.loginLink:hover{
+    font-weight: bold;
+}

@@ -1,42 +1,50 @@
-<div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <a href="{{path('app_main')}}"><img class="img-fluid zxlogo" src="{{asset('/divers/images/grandLogoOrange.png')}}" alt=""></a>
-            </div>
-            <div class="col-md-6 d-flex justify-content-center">
-                <nav class="navbar navbar-expand-lg ">
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-link ps-5" href="#">AMÉRIQUE</a>
-                            <a class="nav-link ps-5" href="#">AFRIQUE</a>
-                            <a class="nav-link ps-5" href="#">EUROPE</a>
-                            <a class="nav-link ps-5" href="#">OCÉANIE</a>
-                            <a class="nav-link ps-5" href="#">ASIE</a>
-                            <a class="nav-link ps-5" href="#contact">CONTACT</a>
+<header>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="{{path('app_main')}}"><img class="img-fluid zxlogo" src="{{asset('/divers/images/grandLogoOrange.png')}}" alt=""></a>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center">
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link ps-5" aria-current="page" href="{{path('app_main')}}">Accueil</a>
+                                <a class="nav-link ps-5" href="{{path('categories', {id:2})}}">Amérique</a>
+                                <a class="nav-link ps-5" href="{{path('categories', {id:4})}}">Asie</a>
+                                <a class="nav-link ps-5" href="{{path('categories', {id:5})}}">Europe</a>
+                                <a class="nav-link ps-5" href="{{path('categories', {id:1})}}">Afrique</a>
+                                <a class="nav-link ps-5" href="{{path('categories', {id:3})}}">Océanie</a>
+                                <a class="nav-link ps-5" href="{{path('app_main')}}#contact">Contact</a>
+                            </div>
+                            </div>
                         </div>
-                    </div>
-                </nav>
-            </div>
-            {% if app.user %}
-                {% if app.user.avatar is empty %}
-                    <div class="col-md-3 d-flex justify-content-end align-items-center">
-                        <i class="fa-solid fa-circle nav-link"></i>&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-                    </div>
-                {% elseif app.user.opption is same as ('yes') %}
+                    </nav>
+                </div>
+                {% if app.user %}
+                    {% if app.user.avatar is empty %}
+                        <div class="col-md-3 d-flex justify-content-end align-items-center">
+                            <i class="fa-solid fa-circle nav-link"></i>&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+                        </div>
+                    {% elseif app.user.opption is same as ('yes') %}
+                        <div class="col-md-3 d-flex justify-content-end align-items-center">
+                            <img src="{{asset('divers/avatars/' ~ app.user.avatar)}}" class="img-fluid roundedImage" alt="">&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>&emsp;<a href="{{path('admin')}}" class="nav-link"><i class="fa-solid fa-circle-play"></i></a>
+                        </div>
+                    {% else %}
                     <div class="col-md-3 d-flex justify-content-end align-items-center">
                         <img src="{{asset('divers/avatars/' ~ app.user.avatar)}}" class="img-fluid roundedImage" alt="">&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>&emsp;<a href="{{path('admin')}}" class="nav-link"><i class="fa-solid fa-circle-play"></i></a>
                     </div>
+                    {% endif %}
                 {% else %}
                 <div class="col-md-3 d-flex justify-content-end align-items-center">
-                    <img src="{{asset('divers/avatars/' ~ app.user.avatar)}}" class="img-fluid roundedImage" alt="">&emsp;<a href="" class="nav-link">{{app.user.pseudo}}</a>&emsp;<a class="nav-link" href="{{path('app_logout')}}"><i class="fa fa-power-off" aria-hidden="true"></i></a>&emsp;<a href="{{path('admin')}}" class="nav-link"><i class="fa-solid fa-circle-play"></i></a>
+                    <a class="nav-link" href="{{path('app_login')}}">CONNEXION &emsp;<i class="fa-regular fa-circle-user"></i></a>
                 </div>
                 {% endif %}
-            {% else %}
-            <div class="col-md-3 d-flex justify-content-end align-items-center">
-                <a class="nav-link" href="{{path('app_login')}}">CONNEXION &emsp;<i class="fa-regular fa-circle-user"></i></a>
             </div>
-            {% endif %}
         </div>
     </div>
-</div>
+</header>

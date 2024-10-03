@@ -1,7 +1,7 @@
 <footer class="zxfooter text-center">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
-    <img class="zximg img-fluid" src="{{asset('divers/images/logoSansFond.png')}}" alt="">
+    <img class="zximg img-fluid" src="{{asset('divers/images/logoSansFond.png')}}" alt="logo globetrek">
   </div>
   <div class="container p-4 pb-0">
     <!-- Section: Social media -->
@@ -59,7 +59,7 @@
         <h5 class="text-uppercase mt-2">Pourquoi nous rejoindre ?</h5>
 
         <p style="text-align: justify;padding: 10px 93px 0px 93px;">
-          Parce qu'on dégotte les plus belles expériences de voyage à partager avec un petit groupe: convivialité et authenticité serint au rendez-vous !
+          Parce qu'on dégotte les plus belles expériences de <strong>voyage</strong> à partager avec un <strong>petit groupe</strong> : convivialité et authenticité serint au rendez-vous !
           Et comme vous pouvez échangez avec les autres voyageurs, vous êtes presque amis avant de partir !
         </p>
       </div>
@@ -68,8 +68,9 @@
       <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase mt-2">Siège social</h5>
-          <p>Globe trek <br> 133 rue des Antilles <br> 69000 LYON CEDEX <br>+33 2 49 85 12 97</p>
-          
+        <p>Globe trek <br> 133 rue des Antilles <br> 69000 LYON CEDEX <br>+33 2 49 85 12 97</p>
+        <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal">Mentions légales</a>
+        <a type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal2">Politique de confidentialité</a>
       </div>
       <!--Grid column-->
 
@@ -79,19 +80,19 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!" class="nav-link">Amérique</a>
+            <a href="{{path('categories', {id:2})}}" class="nav-link">Amérique</a>
           </li>
           <li>
-            <a href="#!" class="nav-link">Afrique</a>
+            <a href="{{path('categories', {id:1})}}" class="nav-link">Afrique</a>
           </li>
           <li>
-            <a href="#!" class="nav-link">Europe</a>
+            <a href="{{path('categories', {id:5})}}" class="nav-link">Europe</a>
           </li>
           <li>
-            <a href="#!" class="nav-link">Océanie</a>
+            <a href="{{path('categories', {id:3})}}" class="nav-link">Océanie</a>
           </li>
            <li>
-            <a href="#!" class="nav-link">Asie</a>
+            <a href="{{path('categories', {id:4})}}" class="nav-link">Asie</a>
           </li>
         </ul>
       </div>
@@ -105,4 +106,65 @@
     <p style="font-size: 1em;">© 2024 Copyright:   Globe Trek - Site réalisé par Alicia Heraud dans le cadre de son passage au titre professionnel DWWM</p>
   </div>
   <!-- Copyright -->
+
+  <!-- Modal mentions légales-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Mentions légales</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Le site globetrek.com est édité par : <br>
+              GLOBETREK, société par actions simplifiée au capital social de 18 430 €, dont le siège social est à 133 rue des antilles, 69000 LYON CEDEX, France, immatriculée sous le numéro 815 322 607.</p>
+
+              <p>Notre Service Clients se tient à votre disposition pour toute information nécessaire de 8h à 18h du lundi au vendredi, et de 9h à 18h le samedi par téléphone ou par courriel (hors jours fériés).
+
+              Numéro de téléphone : (+33) 4 84 98 01 65
+              Email à l’adresse : contact@globetrek.com
+              Le site globetrek est hébergé par :
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal mentions légales-->
+
+    <!-- Modal confidentialité -->
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title text-center" id="exampleModalLabel">Politique de confidentialité</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Vous êtes seul responsable des données que vous communiquez sur le site globetrek.com et à la société GLOBETREK. Vous déclarez que les données fournies à l'occasion de votre inscription sont parfaitement renseignées et exactes.
+                Conformément à l'article 34 de la loi du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, vous êtes informé de ce que les informations nominatives signalées comme étant obligatoires sur les formulaires et recueillies dans le cadre du site www.globetrek.com sont nécessaires pour l'utilisation de celui-ci. Ces informations sont destinées exclusivement à GLOBETREK et à ses partenaires contractuels pour les besoins de l'exécution des présentes Conditions générales.
+                GLOBETREK pourra notamment vous faire parvenir de façon régulière, des messages électroniques d'informations générales sur son activité et le voyage en général, ainsi que des messages personnalisés, en fonction des informations que vous aurez saisies sur son site. Vous disposez des droits d'opposition (art. 26 de la loi), d'accès (art. 34 à 38 de la loi) et de rectification (art. 36 de la loi) des données vous concernant.
+                 Ainsi, vous pouvez exiger que soient rectifiées, complétées, clarifiées, mises à jour ou effacées les informations vous concernant qui sont inexactes, incomplètes, équivoques, périmées ou dont la collecte ou l'utilisation, la communication ou la conservation est interdite. Vous bénéficiez d'un droit d'accès, de rectification que vous pouvez exercer directement sur le site.
+                En transmettant vos témoignages et vos photos sur le site globetrek.com ou par e-mail à GLOBETREK, et en acceptant leur publication sur www.globetrek.com, vous acceptez également que ce contenu soit réutilisé sur l’ensemble des supports de communication GLOBETREK. GLOBETREK est susceptible de publier votre avis, votre photo de profil, votre prénom et première lettre du nom d’utilisateur sur les pages d’offres de voyage de www.globetrek.com.
+                En vous inscrivant sur le site globetrek.com, vous acceptez que les informations de votre profil soient affichées sur une page "membre" qui peut être vue par tout le monde, même par les personnes qui n’ont pas de compte. Votre profil pourra être mis en avant de différentes manières en fonction des actions que vous effectuerez sur le site (visiter des pages voyage plusieurs fois, vous déclarer intéressé par un voyage, acheter un voyage, etc.).
+              </p>
+              <h5>Confidentialité des données</h5>
+              <p>La base de données personnelles constituée à l’occasion de l’inscription aux services Les Aventureurs est confidentielle.
+
+                GLOBETREK garantit par ailleurs la confidentialité des données personnelles collectées (noms, adresses e-mails et mots de passe) lors de l’inscription à ses services. Conformément à la loi Informatique et Libertés du 6 janvier 1978, tout utilisateur dispose d'un droit d'accès, de modification, de rectification et de suppression de ses données.
+
+                GLOBETREK ne peut garantir ni la confidentialité ni l’effacement des données personnelles postées volontairement par l’utilisateur dans ses messages privés.
+
+                GLOBETREK ne saurait être tenu responsable du « spam » subi par les utilisateurs qui auraient décidé volontairement et spontanément de publier en ligne leur adresse email.
+
+                Dans le cas d’une réservation sur le site www.lesaventureurs.com GLOBETREK se réserve le droit de communiquer les données personnelles de l’utilisateur aux autres participant(e)s au voyage.
+
+                Conformément aux dispositions de la loi dans la Confiance dans l’économie numérique du 21 juin 2004, les données de nature à permettre l'identification des internautes (et notamment les adresses IP) ayant contribué à la création de contenus sur le site internet globetrek.com sont détenues et conservées par GLOBETREK.
+                Si vous souhaitez faire la demande de suppression de vos données personnelles, adressez vous à : <a href="mailto:contact@globetrek.com">contact@globetrek.com</a>
+                </p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <!-- Modal confidentialité -->
 </footer>

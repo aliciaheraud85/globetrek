@@ -9,7 +9,7 @@
             <div class="col-md-12 mt-5">
                 <a class="showLink" href="{{path('app_main')}}"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
             </div>
-            <div class="col-md-12 mt-5">
+             <div class="col-md-12 mt-5">
                 <h1 class="showTitle">{{postShow.title}}</h1>
             </div>
             <div class="col-md-12 pb-3">
@@ -19,16 +19,16 @@
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="{{asset('/divers/images/' ~ postShow.image1)}}" class="d-block w-100" alt="...">
+                            <img src="{{asset('/divers/images/' ~ postShow.image1)}}" class="d-block w-100" alt="image voyage">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{asset('/divers/images/' ~ postShow.image2)}}" class="d-block w-100" alt="...">
+                            <img src="{{asset('/divers/images/' ~ postShow.image2)}}" class="d-block w-100" alt="image voyage">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{asset('/divers/images/' ~ postShow.image3)}}" class="d-block w-100" alt="...">
+                            <img src="{{asset('/divers/images/' ~ postShow.image3)}}" class="d-block w-100" alt="image voyage">
                         </div>
                         <div class="carousel-item">
-                            <img src="{{asset('/divers/images/' ~ postShow.image4)}}" class="d-block w-100" alt="...">
+                            <img src="{{asset('/divers/images/' ~ postShow.image4)}}" class="d-block w-100" alt="image voyage">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -111,39 +111,6 @@
                                     <div class="col-md-7"><p class="pt-3" style="font-size: 1.7em; color: #1C1C68;">€ pour 10 nuits</p></div>
                                 </div>
                             </div>
-                                <script>
-                                    // Définitions des prix
-                                    const prices = {
-                                        price1: "{{postShow.price1}}",
-                                        price2: "{{postShow.price2}}",
-                                        price3: "{{postShow.price3}}"
-                                    };
-
-                                    // Récupérer les id des inputs pour récupérer les éléments
-                                    const priceInput = document.getElementById('priceInput');
-                                    const radio1 = document.getElementById('flexRadioDefault1');
-                                    const radio2 = document.getElementById('flexRadioDefault2');
-                                    const radio3 = document.getElementById('flexRadioDefault3');
-
-                                    // Ajouter des gestionnaires d'événements pour chaque radio
-                                    radio1.addEventListener('change', function() {
-                                        if (radio1.checked) {
-                                            priceInput.value = prices.price1;
-                                        }
-                                    });
-
-                                    radio2.addEventListener('change', function() {
-                                        if (radio2.checked) {
-                                            priceInput.value = prices.price2;
-                                        }
-                                    });
-
-                                    radio3.addEventListener('change', function() {
-                                        if (radio3.checked) {
-                                            priceInput.value = prices.price3;
-                                        }
-                                    });
-                                </script>
                             <div class="col-md-12  d-flex justify-content-center"><a href="link" class="btn btn-lg submitBtn mb-5">Je réserve</a></div>
                             <div class="col-md-12">
                                 <div class="row m-5">
@@ -151,7 +118,7 @@
                                     <div class="col-md-10" style="text-align:center;">
                                         <div class="col-md-12">Vous avez des questions ?</div>
                                         <div class="col-md-12 pb-3">Besoin d'un devis personnalisé ?</div>
-                                        <div class="col-md-12"><a href="link" class="btn btn-lg submitBtn">Contactez-nous</a></div>
+                                        <div class="col-md-12"><a href="{{path('app_main')}}#contact" class="btn btn-lg submitBtn">Contactez-nous</a></div>
                                     </div>
                                     <div class="col-md-1"></div>
                                 </div>
@@ -164,4 +131,37 @@
     </div>
 </div>
 
+    <script>
+        // Définitions des prix
+        const prices = {
+            price1: "{{postShow.price1}}",
+            price2: "{{postShow.price2}}",
+            price3: "{{postShow.price3}}"
+        };
+
+        // Récupérer les id des inputs pour récupérer les éléments
+        const priceInput = document.getElementById('priceInput');
+        const radio1 = document.getElementById('flexRadioDefault1');
+        const radio2 = document.getElementById('flexRadioDefault2');
+        const radio3 = document.getElementById('flexRadioDefault3');
+
+        // Ajouter des gestionnaires d'événements pour chaque radio
+        radio1.addEventListener('change', function() {
+            if (radio1.checked) {
+                priceInput.value = prices.price1;
+            }
+        });
+
+        radio2.addEventListener('change', function() {
+            if (radio2.checked) {
+                priceInput.value = prices.price2;
+            }
+        });
+
+        radio3.addEventListener('change', function() {
+            if (radio3.checked) {
+                priceInput.value = prices.price3;
+            }
+        });
+    </script>
 {% endblock %}

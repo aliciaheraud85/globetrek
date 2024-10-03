@@ -66,8 +66,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['class' => 'form-control', 'placeholder' => 'Code Postale'],
                 'constraints' => [
                     new Assert\Length(['min' => 5]),
-                    new Assert\NotBlank(),
-                    new Assert\Type('integer')
+                    new Assert\NotBlank()
                 ]
             ])
             ->add('city', TextType::class,[
@@ -87,7 +86,6 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('avatar', FileType::class,[
                 'label' => 'Avatar',
-                'required' => false,
                 'mapped' => false
             ])
             ->add('agreeTerms', CheckboxType::class, [

@@ -47,8 +47,8 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToRoute('Retourner sur le site', 'fa-solid fa-arrow-rotate-left', 'app_main');
 
-        if($this->isGranted('ROLE_EDITOR')){
-            yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home')->setPermission('ROLE_ADMIN');
+        if($this->isGranted('ROLE_ADMIN')){
+            yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home')->setPermission('ROLE_SUPER_ADMIN');
         }
 
         if($this->isGranted('ROLE_EDITOR')){

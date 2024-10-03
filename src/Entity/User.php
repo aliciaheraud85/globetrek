@@ -62,7 +62,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 10)]
     #[Assert\NotBlank()]
-    #[Assert\Type('integer', message:'Votre code postale n\'est pas valide.')]
     #[Assert\Length(min: 5, minMessage: 'Votre code postale doit contenir au minimum 5 chiffres.')]
     private ?string $zipcode = null;
 
@@ -75,7 +74,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Assert\NotBlank()]
     private ?string $country = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 255)]
     private ?string $avatar = null;
 
     #[ORM\Column(length: 10, nullable: true)]

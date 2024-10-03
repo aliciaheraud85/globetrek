@@ -2,19 +2,21 @@
 
 namespace App\Controller;
 
-use App\Entity\Categories;
 use App\Entity\Comment;
+use App\Entity\Contact;
 use App\Entity\Travels;
 use App\Form\CommentType;
+use App\Form\ContactType;
+use App\Entity\Categories;
+use Symfony\Component\Mime\Email;
 use App\Repository\CommentRepository;
 use App\Repository\TravelsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Symfony\Component\Mailer\MailerInterface;
 
 class MainController extends AbstractController
 {
@@ -29,13 +31,47 @@ class MainController extends AbstractController
 
 
     #[Route('/', name: 'app_main')]
-    public function index(): Response
+    public function index(Request $request, EntityManagerInterface $emi, MailerInterface $mailer): Response
     {
 
         $posts = $this->repo->findBy([], ['createdAt'=> 'DESC', ], 6);
 
+        $contact = new Contact();
+
+        //création formulaire de contact
+        $contactForm = $this->createForm(ContactType::class, $contact);
+        $contactForm->handleRequest($request);
+
+        //verification du formulaire de contact et soumission
+        if($contactForm->isSubmitted() && $contactForm->isValid()){
+            $contact = $contactForm->getData();
+            $emi->persist($contact);
+            $emi->flush();
+            
+            //envoi de mail 
+            $address = $contact->getEmail();
+            $subject = $contact->getSubject();
+            $message = $contact->getMessage();
+
+            $email = (new Email())
+                ->from($address)
+                ->to('amin@globetrek.com')
+                ->subject($subject)
+                ->text($message);
+
+            $mailer->send($email);
+
+            $this->addFlash(
+                'success',
+                'Votre demande à bien été envoyé.'
+            );
+
+            return $this->redirectToRoute('app_main');
+        }
+
         return $this->render('main/index.html.twig', [
-            'posts' => $posts
+            'posts' => $posts,
+            'contact_form' => $contactForm->createView()
         ]);
     }
 

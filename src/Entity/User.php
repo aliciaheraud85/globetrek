@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -22,6 +23,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 50, minMessage: 'L\'adresse mail doit contenir au minimum 2 caractères.', maxMessage: 'L\'adresse mail doit contenir au maximum 50 caractères.')]
+    #[Assert\Email(message: 'Votre adresse email n\'est pas valide.')]
     private ?string $email = null;
 
     /**
@@ -37,24 +41,38 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 100, minMessage: 'Votre nom doit contenir au minimum 2 caractères.', maxMessage: 'Votre nom doit contenir au maximum 100 caractères.')]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 100, minMessage: 'Votre prénom doit contenir au minimum 2 caractères.', maxMessage: 'Votre prénom doit contenir au maximum 100 caractères.')]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 100, minMessage: 'Votre pseudo doit contenir au minimum 2 caractères.', maxMessage: 'Votre pseudo doit contenir au maximum 100 caractères.')]
     private ?string $pseudo = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 255, minMessage: 'Votre adresse doit contenir au minimum 2 caractères.', maxMessage: 'Votre adresse doit contenir au maximum 255 caractères.')]
     private ?string $address = null;
 
     #[ORM\Column(length: 10)]
+    #[Assert\NotBlank()]
+    #[Assert\Type('integer', message:'Votre code postale n\'est pas valide.')]
+    #[Assert\Length(min: 5, minMessage: 'Votre code postale doit contenir au minimum 5 chiffres.')]
     private ?string $zipcode = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 100, minMessage: 'Votre ville doit contenir au minimum 2 caractères.', maxMessage: 'Votre ville doit contenir au maximum 100 caractères.')]
     private ?string $city = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank()]
     private ?string $country = null;
 
     #[ORM\Column(length: 255, nullable: true)]

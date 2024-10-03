@@ -14,7 +14,9 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Intl\Countries;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class RegistrationFormType extends AbstractType
 {
@@ -24,30 +26,64 @@ class RegistrationFormType extends AbstractType
         $builder
             
             ->add('lastname', TextType::class,[
-                'attr' => ['class' => 'form-control', 'placeholder' => 'NOM']
+                'attr' => ['class' => 'form-control', 'placeholder' => 'NOM'],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 100]),
+                    new Assert\NotBlank(),
+                ]
             ])
             ->add('firstname', TextType::class,[
-                'attr' => ['class' => 'form-control', 'placeholder' => 'Prénom']
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Prénom'],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 100]),
+                    new Assert\NotBlank(),
+                ]
             ])
             ->add('email', TextType::class,[
-                'attr' => ['class' => 'form-control', 'placeholder' => 'Adresse email']
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Adresse email'],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 50]),
+                    new Assert\NotBlank(),
+                    new Assert\Email()
+                ]
             ])
             ->add('pseudo', TextType::class,[
-                'attr' => ['class' => 'form-control', 'placeholder' => 'Pseudo']
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Pseudo'],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 100]),
+                    new Assert\NotBlank(),
+                ]
+
             ])
             ->add('address', TextType::class,[
-                'attr' => ['class' => 'form-control', 'placeholder' => 'N° et rue']
+                'attr' => ['class' => 'form-control', 'placeholder' => 'N° et rue'],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 255]),
+                    new Assert\NotBlank(),
+                ]
             ])
             ->add('zipcode', TextType::class,[
-                'attr' => ['class' => 'form-control', 'placeholder' => 'Code Postale']
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Code Postale'],
+                'constraints' => [
+                    new Assert\Length(['min' => 5]),
+                    new Assert\NotBlank(),
+                    new Assert\Type('integer')
+                ]
             ])
             ->add('city', TextType::class,[
-                'attr' => ['class' => 'form-control', 'placeholder' => 'Ville']
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Ville'],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 100]),
+                    new Assert\NotBlank(),
+                ]
             ])
             ->add('country', ChoiceType::class,[
                 'label' => 'Pays',
                 'choices' => array_flip($countries),
-                'placeholder' => 'Selectionnez votre pays'
+                'placeholder' => 'Selectionnez votre pays',
+                'constraints' => [
+                    new Assert\NotBlank(),
+                ]
             ])
             ->add('avatar', FileType::class,[
                 'label' => 'Avatar',
@@ -68,15 +104,8 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez entrer un mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit contenir au minimum {{ limit }} charactères',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
+                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{12,}$/', 
+                    message: "Le mot de passe doit contenir 12 caractères, 1 majuscule, 1 minuscule, 1 chiffre et au moins 1 caractère spécial.")
                 ],
             ])
         ;

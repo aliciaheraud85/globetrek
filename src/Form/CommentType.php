@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class CommentType extends AbstractType
 {
@@ -24,7 +25,10 @@ class CommentType extends AbstractType
                     'style' => 'width: 100%;',
                     'class' => 'form-control'
                 ],
-                'label' => false
+                'label' => false,
+                'constraints' => [
+                    new Assert\NotBlank()
+                ]
             ])
             ->add('save', SubmitType::class, [
                 'label' => 'Envoyer',

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GlobeTrek - Modifications utilisateur{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="container d-flex justify-content-center">
+        <div class="card registercard" style="height: 50rem;">
+            <div class="card-body">
+                <h1 class="card-title p-5">Modifier mes informations</h1>
+                <div class="row">
+                    <div class="col-md-1">
+                    
+                    </div>
+                    <div class="col-md-10">
+                        {{ form_errors(userForm) }}
+
+                        {{ form_start(userForm) }}
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.lastname, {attr: {class: 'form-control', placeholder: 'NOM'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.firstname, {attr: {class: 'form-control', placeholder: 'Prénom'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.pseudo, {attr: {class: 'form-control', placeholder: 'Pseudo'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.email, {attr: {class: 'form-control', placeholder: 'Adresse mail'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.address, {attr: {class: 'form-control', placeholder: 'N° et rue'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.zipcode, {attr: {class: 'form-control', placeholder: 'Code postale'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.city, {attr: {class: 'form-control', placeholder: 'Ville'}})}}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                {{ form_widget(userForm.country, {attr: {class: 'form-control', placeholder: 'Pays'}})}}
+                            </div>
+                            <div class="col-md-12 mb-5">
+                                {{ form_widget(userForm.avatar, {label: 'Avatar', attr: {class: 'form-control', type: 'file', mapped: 'false'}})}}
+                            </div>
+                            <div class="col-md-12 d-flex justify-content-center">{{form_widget(userForm.Submit)}}</div>
+                           
+                        {{ form_end(userForm) }}       
+                    </div>
+                    <div class="col-md-1">
+                    
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+   
+{% endblock %}

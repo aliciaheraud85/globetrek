@@ -10,6 +10,30 @@
         </div>
     </div>
 
+    <div class="container-fluid" style="background-color: #FDA720;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="zxh2">Globetrek c'est quoi ?</h2>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <img src="{{asset('/divers/images/groupe.jpg')}}" alt="groupe de voyage" class="img-fluid rounded mb-5">
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text p-3">Notre concept, proposer des <strong>voyages en groupe</strong>. Mais pas n'importe quel groupe. Un groupe de personnes qui en se connaissent pas,
+                            mais qui vont vivre des choses incroyables ensemble. Nous organisons votre <strong>voyage de A à Z</strong>. Finit la prise de tête pour booker votre <strong>billet d'avion</strong>, fini de fouiller sur le guide du routard pour trouver les meilleures adresses.
+                            Nous faisons tout ça pour vous, et au <strong>meilleur prix</strong>. Alors prêt à partir au bout du monde avec nous ?
+                            </p>
+                            <p class="text p-3" style="text-align:center;font-size: 1.3em;">" Pars avec des inconnus, reviens avec de vrais amis. "</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="container">
             <div class="row">
@@ -22,7 +46,7 @@
                         <div class="col-md-4 pt-4">
                             <div class="image1">
                                 <a href="{{path('show', {id:post.id, slug: post.slug})}}">
-                                    <img src="{{asset('divers/images/' ~ post.image1)}}" class="img-fluid" alt="" style="height: 230px;"><h3 class="text-img">{{post.title}}</h3>
+                                    <img src="{{asset('divers/images/' ~ post.image1)}}" class="img-fluid" alt="image de voyage" style="height: 230px;"><h3 class="text-img">{{post.title}}</h3>
                                 </a>
                             </div>
                         </div>
@@ -44,11 +68,21 @@
                 </div>
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-6 p-5">
-                            <img class="img-fluid rounded" src="{{asset('/divers/images/amazonie.jpg')}}" alt="">
+                        <div class="col-md-6 p-4">
+                            <img class="img-fluid rounded" src="{{asset('/divers/images/amazonie.jpg')}}" alt="voyage montagne">
                         </div>
                         <div class="col-md-6">
-                        
+                            {% for message in app.flashes('success') %}
+                                <div class="alert alert-success mt-2 mb-0 p-1 d-flex justify-content-center">{{ message }}</div>
+                            {% endfor %}
+                            {{ form_start(contact_form) }}
+                                <div class="col-md-12 pb-2  pt-4">{{form_widget(contact_form.lastname)}}</div>
+                                <div class="col-md-12 pb-2">{{form_widget(contact_form.firstname)}}</div>
+                                <div class="col-md-12 pb-2">{{form_widget(contact_form.email)}}</div>
+                                <div class="col-md-12 pb-2">{{form_widget(contact_form.subject)}}</div>
+                                <div class="col-md-12 pb-2">{{form_widget(contact_form.message)}}</div>
+                                <div class="col-md-12 d-flex justify-content-center">{{form_widget(contact_form.Submit)}}</div>
+                            {{ form_end(contact_form) }}
                         </div>
                     </div>
                 </div>

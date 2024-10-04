@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -14,12 +15,15 @@ class Reservation
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
     private ?string $title = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank()]
     private ?string $date = null;
 
     #[ORM\Column(length: 20)]
+    #[Assert\NotBlank()]
     private ?string $price = null;
 
     #[ORM\Column]
@@ -32,6 +36,10 @@ class Reservation
     #[ORM\ManyToOne(inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Travels $travels = null;
+
+    public function __construct(){
+        $this->createdAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {

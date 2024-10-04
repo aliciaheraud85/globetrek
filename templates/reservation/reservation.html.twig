@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande de réservation{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-5 mb-5">
+                   <h1 class="zxh2">Demande de réservation</h1>
+                </div>
+                <div class="col-md-12 d-flex justify-content-center mb-3">
+                    <h2 class="showSubtitle">Comment ça marche ?</h2>
+                </div>
+                <div class="col-md-12 mb-5">
+                    <p class="showText"><strong>Première étape</strong> : Tu remplis le formulaire ci-dessous pour t'inscrire au groupe de voyage.</p>
+                    <p class="showText"><strong>Deuxième étape</strong> : Notre équipe étudie ta demande dans les plus bref délais.</p>
+                    <p class="showText"><strong>Dernière étape</strong> : Notre équipe reviens vers toi et t'envoie la facture avec tous les détails pour ton voyage.</p>
+                </div>
+               <div class="col-md-12 d-flex justify-content-center mb-4">
+                    <h2 class="showSubtitle">Formulaire d'inscription au voyage</h2>
+                </div>
+                {{ form_start(reserv_form)}}
+                    <div class="col-md-12 pb-2">
+                        {{form_widget(reserv_form.title, {'value' : travelPost.title, 'label' : 'Voyage :'})}}
+                    </div>
+                    <div class="col-md-12 pb-2">
+                        {{form_widget(reserv_form.date, {'placeholder' : 'Choisissez votre date de départ', 'label' : 'Date de départ'})}}
+                    </div>
+                    <div class="col-md-12 pb-2">
+                        {{form_widget(reserv_form.price)}}
+                    </div>
+                {{ form_end(reserv_form)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}

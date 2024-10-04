@@ -105,13 +105,10 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-5">
-                                <div class="row mb-2 d-flex align-items-center">
-                                    <div class="col-md-5 d-flex justify-content-end"><input class="form-control" id="priceInput" style="width: 90px; text-align: center; font-size: 1.2em;" type="text" value=""></div>
-                                    <div class="col-md-7"><p class="pt-3" style="font-size: 1.7em; color: #1C1C68;">€ pour 10 nuits</p></div>
-                                </div>
+                            <div class="col-md-12 mt-5  mb-5 d-flex justify-content-center">
+                                <p class="pt-3" id="priceInput" style="font-size: 1.7em; color: #1C1C68;"></p>
                             </div>
-                            <div class="col-md-12  d-flex justify-content-center"><button type="submit" class="btn btn-lg submitBtn mb-5">Je réserve</button></div>
+                            <div class="col-md-12  d-flex justify-content-center"><a href="{{path('app_reservation', {id: postShow.id})}}" class="btn btn-lg submitBtn mb-5">Je réserve ma place</a></div>
                             <div class="col-md-12">
                                 <div class="row m-5">
                                     <div class="col-md-1"></div>
@@ -148,19 +145,19 @@
         // Ajouter des gestionnaires d'événements pour chaque radio
         radio1.addEventListener('change', function() {
             if (radio1.checked) {
-                priceInput.value = prices.price1;
+                priceInput.innerText =  prices.price1 + '€ pour 10 nuits';
             }
         });
 
         radio2.addEventListener('change', function() {
             if (radio2.checked) {
-                priceInput.value = prices.price2;
+                priceInput.innerText = prices.price2 + '€ pour 10 nuits';
             }
         });
 
         radio3.addEventListener('change', function() {
             if (radio3.checked) {
-                priceInput.value = prices.price3;
+                priceInput.innerText = prices.price3 + '€ pour 10 nuits';
             }
         });
     </script>

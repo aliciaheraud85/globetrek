@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 
 class MainController extends AbstractController
@@ -55,12 +56,13 @@ class MainController extends AbstractController
 
             $email = (new Email())
                 ->from($address)
-                ->to('amin@globetrek.com')
+                ->to('globetrek.voyage@gmail.com')
                 ->subject($subject)
                 ->text($message);
-
-            $mailer->send($email);
-
+         
+             $mailer->send($email);
+         
+           
             $this->addFlash(
                 'success',
                 'Votre demande à bien été envoyé.'

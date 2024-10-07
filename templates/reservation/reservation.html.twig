@@ -20,17 +20,26 @@
                <div class="col-md-12 d-flex justify-content-center mb-4">
                     <h2 class="showSubtitle">Formulaire d'inscription au voyage</h2>
                 </div>
-                {{ form_start(reserv_form)}}
-                    <div class="col-md-12 pb-2">
-                        {{form_widget(reserv_form.title, {'value' : travelPost.title, 'label' : 'Voyage :'})}}
+                <div class="col-md-12 mb-5">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                           
+                             {{ form_start(reserv_form)}}
+                                <div class="col-md-12">
+                                    {{form_widget(reserv_form.title, {'value' : travelPost.title, 'label' : 'Voyage :'})}}
+                                </div>
+                                <div class="col-md-12">
+                                    {{form_widget(reserv_form.date)}}
+                                </div>
+                                <div class="col-md-12 d-flex justify-content-center">
+                                    {{form_widget(reserv_form.submit)}}
+                                </div>
+                            {{ form_end(reserv_form)}}
+                        </div>
+                        <div class="col-md-2"></div>
                     </div>
-                    <div class="col-md-12 pb-2">
-                        {{form_widget(reserv_form.date, {'placeholder' : 'Choisissez votre date de départ', 'label' : 'Date de départ'})}}
-                    </div>
-                    <div class="col-md-12 pb-2">
-                        {{form_widget(reserv_form.price)}}
-                    </div>
-                {{ form_end(reserv_form)}}
+                </div>
             </div>
         </div>
     </div>

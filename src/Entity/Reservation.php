@@ -18,13 +18,9 @@ class Reservation
     #[Assert\NotBlank()]
     private ?string $title = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(type: 'datetime')]
     #[Assert\NotBlank()]
-    private ?string $date = null;
-
-    #[ORM\Column(length: 20)]
-    #[Assert\NotBlank()]
-    private ?string $price = null;
+    private ?\DateTime $date = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -58,29 +54,19 @@ class Reservation
         return $this;
     }
 
-    public function getDate(): ?string
+    public function getDate(): ?\DateTime
     {
         return $this->date;
     }
 
-    public function setDate(string $date): static
+    public function setDate(\DateTime $date): static
     {
         $this->date = $date;
 
         return $this;
     }
 
-    public function getPrice(): ?string
-    {
-        return $this->price;
-    }
-
-    public function setPrice(string $price): static
-    {
-        $this->price = $price;
-
-        return $this;
-    }
+    
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {

@@ -48,24 +48,11 @@ class MainController extends AbstractController
             $contact = $contactForm->getData();
             $emi->persist($contact);
             $emi->flush();
-            
-            //envoi de mail 
-            $address = $contact->getEmail();
-            $subject = $contact->getSubject();
-            $message = $contact->getMessage();
 
-            $email = (new Email())
-                ->from($address)
-                ->to('globetrek.voyage@gmail.com')
-                ->subject($subject)
-                ->text($message);
-         
-             $mailer->send($email);
-         
            
             $this->addFlash(
                 'success',
-                'Votre demande à bien été envoyé.'
+                'Votre demande à bien été envoyée.'
             );
 
             return $this->redirectToRoute('app_main');
@@ -124,4 +111,5 @@ class MainController extends AbstractController
              'categories' => $categories
         ]);
     }
+
 }

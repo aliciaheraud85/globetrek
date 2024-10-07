@@ -6,6 +6,11 @@
 <div class="container-fluid">
     <div class="container">
         <div class="row">
+            
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success mt-2 mb-0 p-1 d-flex justify-content-center">{{ message }}</div>
+                {% endfor %}
+         
             <div class="col-md-12 mt-5">
                 <a class="showLink" href="{{path('app_main')}}"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
             </div>
@@ -129,7 +134,7 @@
 </div>
 
     <script>
-        // Définitions des prix
+     
         const prices = {
             price1: "{{postShow.price1}}",
             price2: "{{postShow.price2}}",
@@ -142,7 +147,9 @@
         const radio2 = document.getElementById('flexRadioDefault2');
         const radio3 = document.getElementById('flexRadioDefault3');
 
-        // Ajouter des gestionnaires d'événements pour chaque radio
+        priceInput.innerText = prices.price1 + '€ pour 10 nuits'; 
+
+        // gestion des événements au clique sur les inputs radio
         radio1.addEventListener('change', function() {
             if (radio1.checked) {
                 priceInput.innerText =  prices.price1 + '€ pour 10 nuits';

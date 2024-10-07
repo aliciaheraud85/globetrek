@@ -15,29 +15,60 @@ class TravelsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Travels::class);
     }
+    
+    //méthode pour compter le nombre d'annonces de voyage
+       public function countTravels(): int
+       {
+           return (int) $this->createQueryBuilder('t')
+               ->select('COUNT(t.id)')
+               ->getQuery()
+               ->getSingleScalarResult();
+           ;
+       }
 
-    //    /**
-    //     * @return Travels[] Returns an array of Travels objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('t.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+       public function travelsAfrica(): int
+       {
+         return(int) $this->createQueryBuilder('t')
+            ->select('COUNT(t.id)')
+            ->where('t.categories = 1')
+            ->getQuery()
+            ->getSingleScalarResult();
+        }
 
-    //    public function findOneBySomeField($value): ?Travels
-    //    {
-    //        return $this->createQueryBuilder('t')
-    //            ->andWhere('t.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        public function travelsAmerica(): int
+        {
+          return(int) $this->createQueryBuilder('t')
+             ->select('COUNT(t.id)')
+             ->where('t.categories = 2')
+             ->getQuery()
+             ->getSingleScalarResult();
+        }
+
+        public function travelsOceania(): int
+        {
+          return(int) $this->createQueryBuilder('t')
+             ->select('COUNT(t.id)')
+             ->where('t.categories = 3')
+             ->getQuery()
+             ->getSingleScalarResult();
+        }
+
+        public function travelsAsia(): int
+        {
+          return(int) $this->createQueryBuilder('t')
+             ->select('COUNT(t.id)')
+             ->where('t.categories = 4')
+             ->getQuery()
+             ->getSingleScalarResult();
+        }
+
+         public function travelsEurope(): int
+        {
+          return(int) $this->createQueryBuilder('t')
+             ->select('COUNT(t.id)')
+             ->where('t.categories = 5')
+             ->getQuery()
+             ->getSingleScalarResult();
+        }
+
 }

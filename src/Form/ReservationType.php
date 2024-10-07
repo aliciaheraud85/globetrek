@@ -18,11 +18,10 @@ class ReservationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-       
         $builder
             ->add('title', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control mb-2'
                 ],
                 'constraints' => [
                     new Assert\NotBlank()
@@ -30,16 +29,15 @@ class ReservationType extends AbstractType
             ])
             ->add('date', ChoiceType::class, [
                 'attr' => [
-                    'class' => 'form-control',
+                    'class' => 'form-control mb-4',
                     
                 ],
-                'constraints' => [
-                    new Assert\NotBlank()
-                ]
-            ])
-            ->add('price', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
+                'label' => 'Date de départ',
+                'placeholder' => 'Choisissez votre date de départ',
+                'choices' => [
+                    $options['travelPost']->getDate1()->format('d/m/Y') => $options['travelPost']->getDate1(),
+                    $options['travelPost']->getDate2()->format('d/m/Y') => $options['travelPost']->getDate2(),
+                    $options['travelPost']->getDate3()->format('d/m/Y') => $options['travelPost']->getDate3(),
                 ],
                 'constraints' => [
                     new Assert\NotBlank()
@@ -56,6 +54,7 @@ class ReservationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Reservation::class,
+            'travelPost' => null,
         ]);
     }
 }

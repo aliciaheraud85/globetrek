@@ -49,14 +49,14 @@ class Travels
     #[ORM\Column(length: 10)]
     private ?string $price3 = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $date1 = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date1 = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $date2 = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date2 = null;
 
-    #[ORM\Column(length: 10)]
-    private ?string $date3 = null;
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTime $date3 = null;
 
     #[ORM\Column]
     private ?bool $isPublished = null;
@@ -232,36 +232,36 @@ class Travels
         return $this;
     }
 
-    public function getDate1(): ?string
+    public function getDate1(): ?\DateTime
     {
         return $this->date1;
     }
 
-    public function setDate1(string $date1): static
+    public function setDate1(\DateTime $date1): static
     {
         $this->date1 = $date1;
 
         return $this;
     }
 
-    public function getDate2(): ?string
+    public function getDate2(): ?\DateTime
     {
         return $this->date2;
     }
 
-    public function setDate2(string $date2): static
+    public function setDate2(\DateTime $date2): static
     {
         $this->date2 = $date2;
 
         return $this;
     }
 
-    public function getDate3(): ?string
+    public function getDate3(): ?\DateTime
     {
         return $this->date3;
     }
 
-    public function setDate3(string $date3): static
+    public function setDate3(\DateTime $date3): static
     {
         $this->date3 = $date3;
 

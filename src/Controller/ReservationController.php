@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class ReservationController extends AbstractController
 {
     #[Route('/reservation/{id}', name: 'app_reservation')]
-    public function index($id, EntityManagerInterface $emi, TravelsRepository $travelsRepository, Request $request): Response
+    public function index($id, EntityManagerInterface $emi, TravelsRepository $travelsRepository, Request $request, Travels $travel): Response
     {
         //on va chercher l'id du voyage
         $travelPost = $travelsRepository->find($id);
@@ -24,10 +24,12 @@ class ReservationController extends AbstractController
         $reservation = new Reservation();
 
         //on crée le formulaire de réservation
-        $reservForm = $this->createForm(ReservationType::class, $reservation);
+        $reservForm = $this->createForm(ReservationType::class, $reservation, [
+            'travelPost' => $travelPost
+        ]);
         //on récupère la requette http
         $reservForm->handleRequest($request);
-
+    
         //on gère le traitement du formulaire 
         if($reservForm->isSubmitted() && $reservForm->isValid()){
             
@@ -46,11 +48,13 @@ class ReservationController extends AbstractController
                 'Votre demande a bien été envoyée.'
             );
 
+            return $this->redirectToRoute('show', ['id' => $id]);
+
         }
 
         return $this->render('reservation/reservation.html.twig', [
             'travelPost' => $travelPost,
-            'reserv_form' => $reservForm->createView()
+            'reserv_form' => $reservForm->createView(),
         ]);
     }
 }

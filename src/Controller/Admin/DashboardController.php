@@ -8,6 +8,9 @@ use App\Entity\Contact;
 use App\Entity\Travels;
 use App\Entity\Categories;
 use App\Entity\Reservation;
+use App\Repository\CommentRepository;
+use App\Repository\ReservationRepository;
+use App\Repository\TravelsRepository;
 use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,9 +24,15 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 class DashboardController extends AbstractDashboardController
 {
     protected $userRepo;
+    protected $travelRepo;
+    protected $commentRepo;
+    protected $reservRepo;
 
-    public function __construct(UserRepository $userRepo){
+    public function __construct(UserRepository $userRepo, TravelsRepository $travelRepo, CommentRepository $commentRepo, ReservationRepository $reservRepo){
         $this->userRepo = $userRepo;
+        $this->travelRepo = $travelRepo;
+        $this->commentRepo = $commentRepo;
+        $this->reservRepo = $reservRepo;
     }
 
     #[Route('/admin', name: 'admin')]
@@ -31,10 +40,31 @@ class DashboardController extends AbstractDashboardController
     {
         //On définit le rôle minimum pour pouvoir accéder au backoffice
         if($this->isGranted('ROLE_EDITOR')){
-            return $this->render('admin/dashboard.html.twig');
+            $count = $this->travelRepo->countTravels();
+            $travelsAfrica = $this->travelRepo->travelsAfrica();
+            $travelsAmerica = $this->travelRepo->travelsAmerica();
+            $travelsOceania = $this->travelRepo->travelsOceania();
+            $travelsAsia = $this->travelRepo->travelsAsia();
+            $travelsEurope = $this->travelRepo->travelsEurope();
+            $comments = $this->commentRepo->countComments();
+            $reservation = $this->reservRepo->countReservations();
+            $users = $this->userRepo->countUsers();
+           
+            return $this->render('admin/dashboard.html.twig', [
+                'count' => $count,
+                'africa' => $travelsAfrica,
+                'america' => $travelsAmerica,
+                'oceania' => $travelsOceania,
+                'asia' => $travelsAsia,
+                'europe' => $travelsEurope,
+                'comments' => $comments,
+                'reservation' => $reservation,
+                'users' => $users
+            ]);
         }else{
             return $this->redirectToRoute('app_main');
         }
+
     }
 
     public function configureDashboard(): Dashboard

@@ -1,14 +1,48 @@
 {% extends "@EasyAdmin/page/content.html.twig" %}
 
+
 {% block content %}
 
     <div class="container-fluid">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <h2 class="zxtitre2">Bienvenue sur l'espace administration de BlogVoyage</h2>
+                <div class="col-md-2 pt-4"><img src="{{asset('divers/images/grandLogoOrange.png')}}" alt="logo globetrek" class="img-fluid"></div>
+                <div class="col-md-10 p-5">
+                    <h2 style="font-family: 'Poppins', sans-serif; font-weight: bold; color:#1C1C68">Bienvenue sur l'espace administration de Globetrek</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row pt-5">
+                        <div class="col-md-12 pb-1"><h2>Annonces de voyage</h2></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{count}} annonces postées</p></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-md-12 pb-1"><h2>Annonces par catégories</h2></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{africa}} annonces pour l'Afrique</p></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{ america }} annonces pour l'Amérique</p></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{ oceania }} annonces pour l'Océanie</p></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{ asia }} annonces pour l'Europe</p></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{ asia }}  annonces pour l'Asie</p></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row pt-5">
+                        <div class="col-md-12 pb-1"><h2>Avis</h2></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{ comments }} avis postés sur le site</p></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-md-12 pb-1"><h2>Réservations</h2></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{ reservation }} réservations cette année</p></div>
+                    </div>
+                    <div class="row pt-5">
+                        <div class="col-md-12 pb-1"><h2>Utilisateurs</h2></div>
+                        <div class="col-md-12"><p style="font-size:1.2em;"> {{users}} globe'trekeurs</p></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+  
 {% endblock %}

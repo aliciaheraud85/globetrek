@@ -25,4 +25,14 @@ class CommentRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function countComments(): int
+    {
+        return (int) $this->createQueryBuilder('c')
+            ->select('COUNT(c.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    
 }

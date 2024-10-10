@@ -1323,7 +1323,7 @@ var tarteaucitron = {
                 s = tarteaucitron.services;
 
             if (key !== "") {
-
+                
             if (status === true) {
                 tarteaucitron.userInterface.addClass(key + 'Line', 'tarteaucitronIsAllowed');
                 tarteaucitron.userInterface.removeClass(key + 'Line', 'tarteaucitronIsDenied');

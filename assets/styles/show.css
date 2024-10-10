@@ -66,3 +66,71 @@ label{
 .loginLink:hover{
     font-weight: bold;
 }
+
+.contactUs{
+    text-align: center;
+    margin: 60px;
+}
+
+#priceInput{
+    font-size: 1.7em;
+    color: #1C1C68;
+}
+
+
+
+@media screen and (max-width: 1199px){
+    .radio{
+        display: flex;
+        flex-direction: column;
+    }
+    .submitBtn{
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .contactUs{
+        font-size: 0.9em;
+        margin: 0;
+    }
+    #priceInput{
+        font-size: 1.4em;
+    }
+}
+
+@media screen and (max-width: 769px){
+    .reservCont{
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .form-check{
+        display: flex;
+        justify-content: center;
+    }
+    .submitBtn{
+        margin-bottom: 20px;
+    }
+    .showTitle{
+        font-size: 2.5em;
+    }
+    .showSubtitle{
+        font-size: 1.2em;
+        font-weight: 550;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .showTitle{
+        font-size: 2em;
+    }
+    .showSubtitle{
+        font-size: 1em;
+        font-weight: 450;
+    }
+    .showText{
+        font-size: 0.9em;
+    }
+}

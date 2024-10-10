@@ -12,7 +12,7 @@
                 {% endfor %}
          
             <div class="col-md-12 mt-5">
-                <a class="showLink" href="{{path('app_main')}}"><i class="fa-solid fa-arrow-left"></i> Retour à l'accueil</a>
+                <a class="showLink" href="{{path('categories', {id: postShow.categories.id})}}"><i class="fa-solid fa-arrow-left"></i> Destinations d'{{postShow.categories.name}}</a>
             </div>
              <div class="col-md-12 mt-5">
                 <h1 class="showTitle">{{postShow.title}}</h1>
@@ -88,22 +88,22 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-5 reservCont">
                        <div class="col-md-12 ps-5">
-                            <div class="row ps-3">
-                                <div class="form-check col-md-4 d-flex align-items-center">
+                            <div class="row radio ps-3">
+                                <div class="form-check col-md-4">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                     <label class="form-check-label ps-2" for="flexRadioDefault1" >
                                         {{postShow.date1 | date('d/m/Y')}}
                                     </label>
                                 </div>
-                                <div class="form-check col-md-4 d-flex align-items-center">
+                                <div class="form-check col-md-4">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                                     <label class="form-check-label ps-2" for="flexRadioDefault2">
                                         {{postShow.date2 | date('d/m/Y')}}
                                     </label>
                                 </div>
-                                <div class="form-check col-md-4 d-flex align-items-center">
+                                <div class="form-check col-md-4">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
                                     <label class="form-check-label ps-2" for="flexRadioDefault2">
                                         {{postShow.date3 | date('d/m/Y')}}
@@ -111,13 +111,13 @@
                                 </div>
                             </div>
                             <div class="col-md-12 mt-5  mb-5 d-flex justify-content-center">
-                                <p class="pt-3" id="priceInput" style="font-size: 1.7em; color: #1C1C68;"></p>
+                                <p class="pt-3" id="priceInput"></p>
                             </div>
                             <div class="col-md-12  d-flex justify-content-center"><a href="{{path('app_reservation', {id: postShow.id})}}" class="btn btn-lg submitBtn mb-5">Je réserve ma place</a></div>
                             <div class="col-md-12">
-                                <div class="row m-5">
+                                <div class="row contactUs">
                                     <div class="col-md-1"></div>
-                                    <div class="col-md-10" style="text-align:center;">
+                                    <div class="col-md-10 ">
                                         <div class="col-md-12">Vous avez des questions ?</div>
                                         <div class="col-md-12 pb-3">Besoin d'un devis personnalisé ?</div>
                                         <div class="col-md-12"><a href="{{path('app_main')}}#contact" class="btn btn-lg submitBtn">Contactez-nous</a></div>
@@ -134,38 +134,39 @@
 </div>
 
     <script>
-     
-        const prices = {
-            price1: "{{postShow.price1}}",
-            price2: "{{postShow.price2}}",
-            price3: "{{postShow.price3}}"
+        window.onload = function() {
+            const prices = {
+                price1: "{{postShow.price1}}",
+                price2: "{{postShow.price2}}",
+                price3: "{{postShow.price3}}"
+            };
+
+            // Récupérer les id des inputs pour récupérer les éléments
+            const priceInput = document.getElementById('priceInput');
+            const radio1 = document.getElementById('flexRadioDefault1');
+            const radio2 = document.getElementById('flexRadioDefault2');
+            const radio3 = document.getElementById('flexRadioDefault3');
+
+            priceInput.innerText = prices.price1 + '€ pour 10 nuits'; 
+
+            // gestion des événements au clique sur les inputs radio
+            radio1.addEventListener('change', function() {
+                if (radio1.checked) {
+                    priceInput.innerText =  prices.price1 + '€ pour 10 nuits';
+                }
+            });
+
+            radio2.addEventListener('change', function() {
+                if (radio2.checked) {
+                    priceInput.innerText = prices.price2 + '€ pour 10 nuits';
+                }
+            });
+
+            radio3.addEventListener('change', function() {
+                if (radio3.checked) {
+                    priceInput.innerText = prices.price3 + '€ pour 10 nuits';
+                }
+            });
         };
-
-        // Récupérer les id des inputs pour récupérer les éléments
-        const priceInput = document.getElementById('priceInput');
-        const radio1 = document.getElementById('flexRadioDefault1');
-        const radio2 = document.getElementById('flexRadioDefault2');
-        const radio3 = document.getElementById('flexRadioDefault3');
-
-        priceInput.innerText = prices.price1 + '€ pour 10 nuits'; 
-
-        // gestion des événements au clique sur les inputs radio
-        radio1.addEventListener('change', function() {
-            if (radio1.checked) {
-                priceInput.innerText =  prices.price1 + '€ pour 10 nuits';
-            }
-        });
-
-        radio2.addEventListener('change', function() {
-            if (radio2.checked) {
-                priceInput.innerText = prices.price2 + '€ pour 10 nuits';
-            }
-        });
-
-        radio3.addEventListener('change', function() {
-            if (radio3.checked) {
-                priceInput.innerText = prices.price3 + '€ pour 10 nuits';
-            }
-        });
     </script>
 {% endblock %}

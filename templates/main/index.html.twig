@@ -18,15 +18,15 @@
                 </div>
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-6 mb-5">
+                        <div class="col-md-6 travelImg">
                             <img src="{{asset('/divers/images/groupe.jpg')}}" alt="groupe de voyage" class="img-fluid rounded mb-5">
                         </div>
                         <div class="col-md-6">
-                            <p class="text p-3">Notre concept, proposer des <strong>voyages en groupe</strong>. Mais pas n'importe quel groupe. Un groupe de personnes qui en se connaissent pas,
+                            <p class="text p-2">Notre concept, proposer des <strong>voyages en groupe</strong>. Mais pas n'importe quel groupe. Un groupe de personnes qui en se connaissent pas,
                             mais qui vont vivre des choses incroyables ensemble. Nous organisons votre <strong>voyage de A à Z</strong>. Finit la prise de tête pour booker votre <strong>billet d'avion</strong>, fini de fouiller sur le guide du routard pour trouver les meilleures adresses.
                             Nous faisons tout ça pour vous, et au <strong>meilleur prix</strong>. Alors prêt à partir au bout du monde avec nous ?
                             </p>
-                            <p class="text p-3" style="text-align:center;font-size: 1.3em;">" Pars avec des inconnus, reviens avec de vrais amis. "</p>
+                            <p class="slogan p-3">" Pars avec des inconnus, reviens avec de vrais amis. "</p>
                         </div>
                     </div>
                 </div>
@@ -41,9 +41,9 @@
                     <h2 class="zxh2">Nos bests-sellers</h2>
                 </div>
                 <div class="col-md-12">
-                    <div class="row mb-5">
+                    <div class="row mb-5 ">
                     {% for post in posts %}
-                        <div class="col-md-4 pt-4">
+                        <div class="col-md-4 pt-4 imgavecfond">
                             <div class="image1">
                                 <a href="{{path('show', {id:post.id, slug: post.slug})}}">
                                     <img src="{{asset('divers/images/' ~ post.image1)}}" class="img-fluid" alt="image de voyage" style="height: 230px;"><h3 class="text-img">{{post.title}}</h3>

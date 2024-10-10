@@ -16,10 +16,10 @@
 
     <div class="container-fluid ">
         <div class="container d-flex justify-content-center">
-            <div class="card">
+            <div class="card loginCard">
                 <div class="card-body">
-                    <h5 class="card-title p-5">Me Connecter</h5>
-                    <h6 class="card-subtitle p-3">Connectez-vous à votre compte pour booker notre prochain voyage ensemble.</h6>
+                    <h5 class="card-title logTitle">Me Connecter</h5>
+                    <h6 class="card-subtitle logSubtitle">Connectez-vous à votre compte pour booker notre prochain voyage ensemble.</h6>
                     <div class="row">
                         <div class="col-md-1">
                         </div>
@@ -45,7 +45,10 @@
                         <div class="col-md-1"></div>
                         <div class="col-md-5"></div>
                         <div class="col-md-5 d-flex justify-content-end">
-                            <p class="pt-2">Pas encore inscrit ?</p>&emsp;<a href="{{path('app_register')}}"><button class="btn btn-md logbtn" type="submit">Je m'inscris</button></a>
+                            <div class="row">
+                                <div class="col-md-5"><p class="register pt-2">Pas inscrit ?</p></div>
+                                <div class="col-md-7"><a href="{{path('app_register')}}"><button class="btn btn-md logbtn" type="submit">Je m'inscris</button></a></div>
+                            </div>
                         </div>
                         <div class="col-md-1"></div>
                     </div>                   

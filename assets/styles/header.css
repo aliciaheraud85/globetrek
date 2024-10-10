@@ -14,3 +14,49 @@
     height: 25px;
     border-radius: 50%;
 }
+
+.user{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+@media screen and (min-width: 1200px){
+    .pseudo{
+        display: none;
+        margin-left: 10px;
+    }
+} 
+
+@media screen and (min-width: 769px) and (max-width: 1199px){
+    .login{
+        display: none;
+    }
+    .roundedImage{
+        display: none;
+    }
+    .pseudo2{
+        display: none;
+    }
+    .contact{
+        margin-right: 25px;
+    }
+}
+
+
+
+@media screen and (max-width: 768px){
+    .user{
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .logo{
+        display: flex;
+        justify-content: center;
+    }
+    .pseudo{
+        display: none;
+    }
+}

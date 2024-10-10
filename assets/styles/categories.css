@@ -1,0 +1,88 @@
+
+.rubrik{
+    background-color: #1C1C68;
+    margin: 80px 0px 80px 0px;
+    font-family: "Poppins", sans-serif;
+    color: #FFF;
+    font-weight: 350;
+    width:400px;
+    height: 400px;
+    text-align: center;
+}
+
+.catTitle{
+    font-size: 2.8em;
+    color: #1C1C68; 
+    text-align: center;
+    font-weight: bold;
+}
+
+.travelTitle{
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.catBtn{
+    background-color: #fff;
+    color: #1C1C68;
+    font-weight:400;
+    transition: transform .1s;
+}
+
+.catBtn:hover{
+    transform: scale(1.1);
+    background-color:#00AEF3;
+    color: #FFF;
+} 
+
+@media screen and (max-width:1399px){
+    .rubrik{
+        width:350px;
+        height: 380px;
+    }
+}
+
+@media screen and (max-width:1199px){
+    .rubrik{
+        width:550px;
+        height: 440px;
+    }
+    .cont{
+        display: flex;
+        flex-direction: column;
+    }
+    .cont2{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .catTitle{
+        font-size: 2em;
+        padding: 0px 0px 20px 0px;
+    }
+    .showLink{
+        font-size: 1em;
+    }
+    .rubrik{
+        width:400px;
+        height: 390px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .rubrik{
+        width: 300px;
+        height: 360px;
+    }
+    .catTitle{
+        font-size: 1.6em;
+        padding: 0px 0px 20px 0px;
+    }
+    .showLink{
+        font-size: 0.9em;
+    }
+}

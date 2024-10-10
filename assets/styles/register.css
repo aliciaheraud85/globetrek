@@ -1,5 +1,26 @@
 .registercard{
-    height: 66rem;
+    background-color: #FDA720;
+    margin: 80px 0px 80px 0px;
+    font-family: "Poppins", sans-serif;
+    color: #FFF;
+    font-weight: 350;
+    width: 800px;
+    height: 1056px;
+}
+
+
+.registerbtn{
+    background-color: #1C1C68;
+    color: #FFF;
+    font-weight:200;
+    transition: transform .1s;
+    width: 140px;
+}
+
+.registerbtn:hover{
+    transform: scale(1.1);
+    background-color:#00AEF3;
+    color: #FFF;
 }
 
 .registerLink{
@@ -8,4 +29,41 @@
 
 .registerLink:hover{
     text-decoration: none;
+}
+
+@media screen and (max-width: 540px){
+    .registercard{
+        height: 1070px;
+    }
+    .registerLink{
+        font-size: 1em;
+    }
+    .registerbtn{
+        font-size: 1em;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 466px){
+    .registerLink{
+        font-size: 0.9em;
+    }
+    .registerText{
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .registerLink{
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 430px){
+    .registercard{
+        height: 1080px;
+    }
+    .registerText{
+        display: none;
+    }
 }

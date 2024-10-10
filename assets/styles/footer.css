@@ -22,3 +22,49 @@
 .nav-link:hover{
     color: #00AEF3;
 }
+
+.joinUs{
+    text-align: justify;
+    padding: 10px 93px 0px 93px;
+}
+
+.join {
+    background-color:#FDA720;
+    border-radius: 20px;
+}
+
+.copy{
+    font-size: 1em;
+}
+
+@media screen and (max-width: 1199px){
+    .joinUs{
+        padding: 10px 50px 0px 50px;
+    }
+    .copy{
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .joinUs{
+        padding: 5px 20px 0px 20px;
+    }
+    .join{
+        background-color: transparent;
+    }
+    .copy{
+        font-size: 0.7em;
+    }
+    
+}
+
+@media screen and (min-width: 320px) and (max-width: 341px){
+    .text-uppercase{
+        font-size: 1.1em;
+        font-weight: bold;
+    }
+    .copy{
+        font-size: 0.6em;
+    }
+}

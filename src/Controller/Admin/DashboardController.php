@@ -49,6 +49,7 @@ class DashboardController extends AbstractDashboardController
             $comments = $this->commentRepo->countComments();
             $reservation = $this->reservRepo->countReservations();
             $users = $this->userRepo->countUsers();
+            
            
             return $this->render('admin/dashboard.html.twig', [
                 'count' => $count,

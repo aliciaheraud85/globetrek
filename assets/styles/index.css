@@ -3,6 +3,10 @@
     font-family: "Poppins";
 }
 
+strong{
+    font-weight: normal;
+}
+
 .img-fond{
     background-image: url('montagne.jpg');
     height: 500px;

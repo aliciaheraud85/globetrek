@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-md-5 reservCont">
                        <div class="col-md-12 ps-5">
-                            <div class="row radio ps-3">
+                            <div class="row radio">
                                 <div class="form-check col-md-4">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                     <label class="form-check-label ps-2" for="flexRadioDefault1" >
@@ -113,13 +113,15 @@
                             <div class="col-md-12 mt-5  mb-5 d-flex justify-content-center">
                                 <p class="pt-3" id="priceInput"></p>
                             </div>
-                            <div class="col-md-12  d-flex justify-content-center"><a href="{{path('app_reservation', {id: postShow.id})}}" class="btn btn-lg submitBtn mb-5">Je réserve ma place</a></div>
+                            <div class="col-md-12 d-flex justify-content-center"><a href="{{path('app_reservation', {id: postShow.id})}}" class="btn btn-lg submitBtn mb-5">Je réserve ma place</a></div>
                             <div class="col-md-12">
                                 <div class="row contactUs">
                                     <div class="col-md-1"></div>
                                     <div class="col-md-10 ">
-                                        <div class="col-md-12">Vous avez des questions ?</div>
-                                        <div class="col-md-12 pb-3">Besoin d'un devis personnalisé ?</div>
+                                        <div class="questions">
+                                            <div class="col-md-12 ">Vous avez des questions ?</div>
+                                            <div class="col-md-12 pb-3">Besoin d'un devis personnalisé ?</div>
+                                        </div>
                                         <div class="col-md-12"><a href="{{path('app_main')}}#contact" class="btn btn-lg submitBtn">Contactez-nous</a></div>
                                     </div>
                                     <div class="col-md-1"></div>

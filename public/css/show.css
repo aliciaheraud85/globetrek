@@ -77,8 +77,6 @@ label{
     color: #1C1C68;
 }
 
-
-
 @media screen and (max-width: 1199px){
     .radio{
         display: flex;
@@ -88,6 +86,7 @@ label{
         font-size: 1em;
     }
 }
+
 
 @media screen and (max-width: 991px){
     .contactUs{
@@ -105,6 +104,7 @@ label{
         justify-content: center;
         margin-left: 0;
         padding-left: 0;
+        padding-top: 20px;
     }
     .form-check{
         display: flex;
@@ -132,5 +132,22 @@ label{
     }
     .showText{
         font-size: 0.9em;
+    }
+    .form-check{
+        display: flex;
+        justify-content: center;
+        padding-right: 35px;
+    }
+    .reservCont{
+        padding-top: 20px;
+    }
+    #priceInput{
+        margin-right: 17px;
+    }
+    .submitBtn{
+        margin-right: 27px;
+    }
+    .questions{
+        margin-right: 30px;
     }
 }

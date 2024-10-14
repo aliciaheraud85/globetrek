@@ -32,7 +32,7 @@ class MainController extends AbstractController
 
 
     #[Route('/', name: 'app_main')]
-    public function index(Request $request, EntityManagerInterface $emi, MailerInterface $mailer): Response
+    public function index(Request $request, EntityManagerInterface $emi): Response
     {
 
         $posts = $this->repo->findBy([], ['createdAt'=> 'DESC', ], 6);

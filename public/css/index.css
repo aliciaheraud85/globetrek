@@ -10,6 +10,7 @@ strong{
 .img-fond{
     background-image: url('montagne.jpg');
     height: 500px;
+    width: 100%;
     background-size: 100%;
     background-attachment: fixed;
 }

@@ -82,17 +82,20 @@
     }
 }
 
-@media screen and (min-width: 320px) and (max-width: 351px){
+@media screen and (min-width: 320px) and (max-width: 352px){
     .logbtn{
         padding: 2px;
         font-size: 0.9em;
         width: 95px;
     }
     .loginCard{
-        height: 460px;
+        height: 500px;
     }
     .logSubtitle{
         padding: 10px;
+        font-size: 0.9em;
+    }
+    .logTitle{
         font-size: 1.7em;
     }
 }

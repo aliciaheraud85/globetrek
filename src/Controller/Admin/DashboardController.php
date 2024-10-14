@@ -39,7 +39,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         //On définit le rôle minimum pour pouvoir accéder au backoffice
-        if($this->isGranted('ROLE_EDITOR')){
+        if($this->isGranted('ROLE_MODO')){
             $count = $this->travelRepo->countTravels();
             $travelsAfrica = $this->travelRepo->travelsAfrica();
             $travelsAmerica = $this->travelRepo->travelsAmerica();
@@ -82,6 +82,13 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home')->setPermission('ROLE_SUPER_ADMIN');
         }
 
+        if($this->isGranted('ROLE_MODO')){
+            yield MenuItem::section('Avis');
+            yield MenuItem::subMenu('Avis', 'fa fa-comment-dots')->setSubItems([
+                MenuItem::linkToCrud('Voir les avis', 'fas fa-eye', Comment::class),
+            ]);
+        }
+
         if($this->isGranted('ROLE_EDITOR')){
             yield MenuItem::section('Annonces');
             yield MenuItem::subMenu('Annonces', 'fa-solid fa-plane')->setSubItems([
@@ -94,12 +101,7 @@ class DashboardController extends AbstractDashboardController
             ]);
         }
 
-        if($this->isGranted('ROLE_MODO')){
-            yield MenuItem::section('Avis');
-            yield MenuItem::subMenu('Avis', 'fa fa-comment-dots')->setSubItems([
-                MenuItem::linkToCrud('Voir les avis', 'fas fa-eye', Comment::class),
-            ]);
-        }
+     
 
         if($this->isGranted('ROLE_ADMIN')){
             yield MenuItem::section('Catégories');

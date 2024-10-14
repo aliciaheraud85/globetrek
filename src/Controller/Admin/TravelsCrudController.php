@@ -54,9 +54,9 @@ class TravelsCrudController extends AbstractCrudController
                 ->setSortable(false) //l'image ne peut pas être null
                 ->setFormTypeOption('required', false)->setColumns('col-md-3'),
             
-            TextField::new('date1')->setColumns('col-md-4'),
-            TextField::new('date2')->setColumns('col-md-4'),
-            TextField::new('date3')->setColumns('col-md-4'),
+            DateField::new('date1')->setColumns('col-md-4'),
+            DateField::new('date2')->setColumns('col-md-4'),
+            DateField::new('date3')->setColumns('col-md-4'),
 
             TextField::new('price1')->setColumns('col-md-4'),
             TextField::new('price2')->setColumns('col-md-4'),

@@ -46,9 +46,9 @@ security:
        - { path: '^/main', roles: ROLE_USER }
 
     role_hierarchy:
-        ROLE_EDITOR: ['ROLE_USER']
-        ROLE_MODO: ['ROLE_EDITOR']
-        ROLE_ADMIN: ['ROLE_MODO']
+        ROLE_MODO: ['ROLE_USER']
+        ROLE_EDITOR: ['ROLE_MODO']
+        ROLE_ADMIN: ['ROLE_EDITOR']
         ROLE_SUPER_ADMIN: ['ROLE_ADMIN']
 
 when@test:
